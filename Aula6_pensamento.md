@@ -65,6 +65,225 @@ Resposta: Uma caixa ou pote com etiqueta — a etiqueta é o nome da variável, 
 20. Como o Python identifica o tipo de uma variável?
  
 Resposta: O Python descobre sozinho pelo valor que você coloca nela — não precisa dizer qual é o tipo. Se colocar número, ele entende número; se colocar texto, ele entende texto.
+21 — O que o tipo de dado 'int' (inteiro) armazena?
+👉 Armazena números inteiros, sem vírgula/ponto decimal. Exemplos: 5, 0, -10, 999.
+ 
+22 — Para que serve o tipo de dado 'float'?
+👉 Serve para números com casas decimais (números reais). Exemplos: 3.14, 10.5, -2.75.
+ 
+23 — O que representa o tipo de dado 'str' (string)?
+👉 Representa textos, palavras, frases ou sequências de caracteres, sempre entre aspas. Exemplo:  "Cleidimar" ,  "Vila Velha" .
+ 
+24 — O que armazena uma variável do tipo 'bool' (booleano)?
+👉 Armazena apenas dois valores:  True  (verdadeiro / sim) ou  False  (falso / não).
+ 
+25 — Analogia: Como o tipo 'bool' pode ser usado para verificar o forno?
+👉 Pode indicar se o forno está ligado = True ou desligado = False; ou se está quente = True / frio = False. É uma pergunta que só tem sim ou não como resposta.
+ 
+26 — O que é uma Constante em programação?
+👉 É um valor que não muda ao longo do programa. É definido uma vez e fica igual o tempo todo — não pode ser alterado depois.
+ 
+27 — Qual a convenção visual para nomear constantes em Python?
+👉 Escrever tudo com letras MAIÚSCULAS, separando palavras por underline. Exemplo:  PI = 3.1415 ,  VELOCIDADE_MAXIMA = 100 .
+ 
+28 — Qual o símbolo utilizado para 'Atribuição' em Python?
+👉 É o sinal de igual:  = . Exemplo:  idade = 30  → guarda o número 30 dentro de idade.
+ 
+29 — Quais são os operadores aritméticos básicos para soma e subtração?
+👉 Soma:  +  | Subtração:  - 
+ 
+30 — Em Python, quais símbolos representam multiplicação e divisão?
+👉 Multiplicação:  *  (asterisco) | Divisão:  /  (barra)21 — O que o tipo de dado 'int' (inteiro) armazena?
+👉 Armazena números inteiros, sem vírgula/ponto decimal. Exemplos: 5, 0, -10, 999.
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+
+ 
+
+
+ 
+
+ 
+
+
+ 
+
+
+ 
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+ 
+
+
+
+ 
+
+
+ 
+ 
+
+ 
+
+
+ 
+24 — O que armazena uma variável do tipo 'bool' (booleano)?
+👉 Armazena apenas dois valores:  True  (verdadeiro / sim) ou  False  (falso / não).
+ 
+25 — Analogia: Como o tipo 'bool' pode ser usado para verificar o forno?
+👉 Pode indicar se o forno está ligado = True ou desligado = False; ou se está quente = True / frio = False. É uma pergunta que só tem sim ou não como resposta.
+ 
+26 — O que é uma Constante em programação?
+👉 É um valor que não muda ao longo do programa. É definido uma vez e fica igual o tempo todo — não pode ser alterado depois.
+ 
+27 — Qual a convenção visual para nomear constantes em Python?
+👉 Escrever tudo com letras MAIÚSCULAS, separando palavras por underline. Exemplo:  PI = 3.1415 ,  VELOCIDADE_MAXIMA = 100 .
+ 
+28 — Qual o símbolo utilizado para 'Atribuição' em Python?
+👉 É o sinal de igual:  = . Exemplo:  idade = 30  → guarda o número 30 dentro de idade.
+ 
+29 — Quais são os operadores aritméticos básicos para soma e subtração?
+👉 Soma:  +  | Subtração:  - 
+ 
+30 — Em Python, quais símbolos representam multiplicação e divisão?
+👉 Multiplicação:  *  (asterisco) | Divisão:  /  (barra)21 — O que o tipo de dado 'int' (inteiro) armazena?
+👉 Armazena números inteiros, sem vírgula/ponto decimal. Exemplos: 5, 0, -10, 999.
+ 
+22 — Para que serve o tipo de dado 'float'?
+👉 Serve para números com casas decimais (números reais). Exemplos: 3.14, 10.5, -2.75.
+ 
+23 — O que representa o tipo de dado 'str' (string)?
+👉 Representa textos, palavras, frases ou sequências de caracteres, sempre entre aspas. Exemplo:  "Cleidimar" ,  "Vila Velha" .
+ 
+24 — O que armazena uma variável do tipo 'bool' (booleano)?
+👉 Armazena apenas dois valores:  True  (verdadeiro / sim) ou  False  (falso / não).
+ 
+25 — Analogia: Como o tipo 'bool' pode ser usado para verificar o forno?
+👉 Pode indicar se o forno está ligado = True ou desligado = False; ou se está quente = True / frio = False. É uma pergunta que só tem sim ou não como resposta.
+ 
+26 — O que é uma Constante em programação?
+👉 É um valor que não muda ao longo do programa. É definido uma vez e fica igual o tempo todo — não pode ser alterado depois.
+ 
+27 — Qual a convenção visual para nomear constantes em Python?
+👉 Escrever tudo com letras MAIÚSCULAS, separando palavras por underline. Exemplo:  PI = 3.1415 ,  VELOCIDADE_MAXIMA = 100 .
+ 
+28 — Qual o símbolo utilizado para 'Atribuição' em Python?
+👉 É o sinal de igual:  = . Exemplo:  idade = 30  → guarda o número 30 dentro de idade.
+ 
+29 — Quais são os operadores aritméticos básicos para soma e subtração?
+👉 Soma:  +  | Subtração:  - 
+ 
+30 — Em Python, quais símbolos representam multiplicação e divisão?
+👉 Multiplicação:  *  (asterisco) | Divisão:  /  (barra)21 — O que o tipo de dado 'int' (inteiro) armazena?
+👉 Armazena números inteiros, sem vírgula/ponto decimal. Exemplos: 5, 0, -10, 999.
+ 
+22 — Para que serve o tipo de dado 'float'?
+👉 Serve para números com casas decimais (números reais). Exemplos: 3.14, 10.5, -2.75.
+ 
+23 — O que representa o tipo de dado 'str' (string)?
+👉 Representa textos, palavras, frases ou sequências de caracteres, sempre entre aspas. Exemplo:  "Cleidimar" ,  "Vila Velha" .
+ 
+24 — O que armazena uma variável do tipo 'bool' (booleano)?
+👉 Armazena apenas dois valores:  True  (verdadeiro / sim) ou  False  (falso / não).
+ 
+25 — Analogia: Como o tipo 'bool' pode ser usado para verificar o forno?
+👉 Pode indicar se o forno está ligado = True ou desligado = False; ou se está quente = True / frio = False. É uma pergunta que só tem sim ou não como resposta.
+ 
+26 — O que é uma Constante em programação?
+👉 É um valor que não muda ao longo do programa. É definido uma vez e fica igual o tempo todo — não pode ser alterado depois.
+ 
+27 — Qual a convenção visual para nomear constantes em Python?
+👉 Escrever tudo com letras MAIÚSCULAS, separando palavras por underline. Exemplo:  PI = 3.1415 ,  VELOCIDADE_MAXIMA = 100 .
+ 
+28 — Qual o símbolo utilizado para 'Atribuição' em Python?
+👉 É o sinal de igual:  = . Exemplo:  idade = 30  → guarda o número 30 dentro de idade.
+ 
+29 — Quais são os operadores aritméticos básicos para soma e subtração?
+👉 Soma:  +  | Subtração:  - 
+ 
+30 — Em Python, quais símbolos representam multiplicação e divisão?
+👉 Multiplicação:  *  (asterisco) | Divisão:  /  (barra)21 — O que o tipo de dado 'int' (inteiro) armazena?
+👉 Armazena números inteiros, sem vírgula/ponto decimal. Exemplos: 5, 0, -10, 999.
+ 
+22 — Para que serve o tipo de dado 'float'?
+👉 Serve para números com casas decimais (números reais). Exemplos: 3.14, 10.5, -2.75.
+ 
+23 — O que representa o tipo de dado 'str' (string)?
+👉 Representa textos, palavras, frases ou sequências de caracteres, sempre entre aspas. Exemplo:  "Cleidimar" ,  "Vila Velha" .
+ 
+24 — O que armazena uma variável do tipo 'bool' (booleano)?
+👉 Armazena apenas dois valores:  True  (verdadeiro / sim) ou  False  (falso / não).
+ 
+25 — Analogia: Como o tipo 'bool' pode ser usado para verificar o forno?
+👉 Pode indicar se o forno está ligado = True ou desligado = False; ou se está quente = True / frio = False. É uma pergunta que só tem sim ou não como resposta.
+ 
+26 — O que é uma Constante em programação?
+👉 É um valor que não muda ao longo do programa. É definido uma vez e fica igual o tempo todo — não pode ser alterado depois.
+ 
+27 — Qual a convenção visual para nomear constantes em Python?
+👉 Escrever tudo com letras MAIÚSCULAS, separando palavras por underline. Exemplo:  PI = 3.1415 ,  VELOCIDADE_MAXIMA = 100 .
+ 
+28 — Qual o símbolo utilizado para 'Atribuição' em Python?
+👉 É o sinal de igual:  = . Exemplo:  idade = 30  → guarda o número 30 dentro de idade.
+ 
+29 — Quais são os operadores aritméticos básicos para soma e subtração?
+👉 Soma:  +  | Subtração:  - 
+ 
+30 — Em Python, quais símbolos representam multiplicação e divisão?
+Multiplicação:*(asterisco) Divisão:/(barra) 
+ 
+
+ 
+
+ 
+
  
  
  
