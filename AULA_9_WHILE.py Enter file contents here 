@@ -1,0 +1,37 @@
+
+  
+# Exercício 1 - Contagem Regressiva
+contador = 10
+while contador >= 0:
+    print(contador)
+    contador = contador - 1
+print("Fogo! 🚀")
+
+ Exercício 2: Somador de Números
+ 
+
+  
+# Exercício 2 - Somador de Números
+soma = 0
+numero = int(input("Digite um número (0 para parar): "))
+
+while numero != 0:
+    soma = soma + numero
+    numero = int(input("Digite um número (0 para parar): "))
+
+print(f"A soma total é: {soma}")
+
+ 
+🎯 Exercício 3: Jogo da Adivinhação
+ 
+
+  
+# Exercício 3 - Jogo da Adivinhação
+numero_secreto = 7
+palpite = int(input("Adivinhe o número (entre 1 e 10): "))
+
+while palpite != numero_secreto:
+    print("❌ Errou! Tente de novo.")
+    palpite = int(input("Adivinhe o número (entre 1 e 10): "))
+
+print("✅ Parabéns, você adivinhou!")
