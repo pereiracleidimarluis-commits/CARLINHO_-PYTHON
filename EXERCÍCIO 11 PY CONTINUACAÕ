@@ -1,0 +1,278 @@
+def saudacao():
+    print("Olá! Seja bem-vindo ao Python.")
+
+# Chamada da função
+saudacao() def mostrar_nome(nome):
+    print(f"Olá, {nome}")
+
+mostrar_nome("Marcio") def somar(a, b):
+    print(a + b)
+
+somar(10, 20) def dobro(numero):
+    return numero * 2
+
+resultado = dobro(8)
+print(resultado) def verificar_numero(numero):
+    if numero % 2 == 0:
+        return "Par"
+    else:
+        return "Ímpar"
+
+print(verificar_numero(7))def calcular_media(nota1, nota2):
+    return (nota1 + nota2) / 2
+
+media = calcular_media(8.0, 6.0)
+print("Média:", media) def verificar_aprovacao(media):
+    if media >= 60:
+        return "Aprovado"
+    else:
+        return "Reprovado"
+
+print(verificar_aprovacao(75)) def cadastrar():
+    nome = input("Digite seu nome: ")
+    idade = input("Digite sua idade: ")
+    print(f"\nNome: {nome}")
+    print(f"Idade: {idade}")
+
+cadastrar() def somar(a, b):
+    return a + b
+
+def subtrair(a, b):
+    return a - b
+
+def multiplicar(a, b):
+    return a * b
+
+def dividir(a, b):
+    if b == 0:
+        return "Erro: divisão por zero!"
+    return a / b
+
+def menu():
+    while True:
+        print("\n--- CALCULADORA ---")
+        print("1 - Somar")
+        print("2 - Subtrair")
+        print("3 - Multiplicar")
+        print("4 - Dividir")
+        print("5 - Sair")
+        
+        opcao = input("Escolha uma opção: ")
+
+        if opcao == "5":
+            print("Saindo do programa...")
+            break
+
+        if opcao in ["1", "2", "3", "4"]:
+            num1 = float(input("Digite o primeiro número: "))
+            num2 = float(input("Digite o segundo número: "))
+
+            if opcao == "1":
+                print("Resultado:", somar(num1, num2))
+            elif opcao == "2":
+                print("Resultado:", subtrair(num1, num2))
+            elif opcao == "3":
+                print("Resultado:", multiplicar(num1, num2))
+            elif opcao == "4":
+                print("Resultado:", dividir(num1, num2))
+        else:
+            print("Opção inválida! Tente novamente.")
+
+# Executa a calculadora
+menu() # Exercício 1 — Saudação
+def saudacao():
+    print("Olá! Seja bem-vindo ao Python.")
+
+saudacao()
+
+
+# Exercício 2 — Nome
+def mostrar_nome(nome):
+    print(f"Olá, {nome}")
+
+mostrar_nome("Marcio")
+
+
+# Exercício 3 — Soma
+def somar(a, b):
+    print(a + b)
+
+somar(10, 20)
+
+
+# Exercício 4 — Dobro
+def dobro(numero):
+    return numero * 2
+
+resultado = dobro(8)
+print(resultado)
+
+
+# Exercício 5 — Par ou ímpar
+def verificar_numero(numero):
+    if numero % 2 == 0:
+        print("Par")
+    else:
+        print("Ímpar")
+
+verificar_numero(7)
+
+
+# Exercício 6 — Média
+def calcular_media(nota1, nota2):
+    media = (nota1 + nota2) / 2
+    return media
+
+resultado_media = calcular_media(8.0, 6.0)
+print(resultado_media)
+
+
+# Exercício 7 — Aprovado/Reprovado
+def verificar_aprovacao(media):
+    if media >= 60:
+        return "Aprovado"
+    else:
+        return "Reprovado"
+
+status = verificar_aprovacao(75)
+print(status)
+
+
+# Exercício 8 — Cadastro simples
+def cadastrar():
+    nome = input("Digite seu nome: ")
+    idade = input("Digite sua idade: ")
+    print(f"\nNome: {nome}")
+    print(f"Idade: {idade}")
+
+cadastrar()
+
+
+# Desafio Final — Calculadora
+def somar(a, b):
+    return a + b
+
+def subtrair(a, b):
+    return a - b
+
+def multiplicar(a, b):
+    return a * b
+
+def dividir(a, b):
+    if b == 0:
+        return "Erro: divisão por zero"
+    return a / b
+
+while True:
+    print("\n--- MENU ---")
+    print("1 - Somar")
+    print("2 - Subtrair")
+    print("3 - Multiplicar")
+    print("4 - Dividir")
+    print("5 - Sair")
+
+    opcao = input("Escolha uma opção: ")
+
+    if opcao == "5":
+        print("Saindo...")
+        break
+
+    if opcao in ["1", "2", "3", "4"]:
+        num1 = float(input("Digite o primeiro número: "))
+        num2 = float(input("Digite o segundo número: "))
+
+        if opcao == "1":
+            print("Resultado:", somar(num1, num2))
+        elif opcao == "2":
+            print("Resultado:", subtrair(num1, num2))
+        elif opcao == "3":
+            print("Resultado:", multiplicar(num1, num2))
+        elif opcao == "4":
+            print("Resultado:", dividir(num1, num2))
+    else:
+        print("Opção inválida!") def saudacao():
+    print("Olá! Seja bem-vindo ao Python.")
+
+saudacao()
+
+def mostrar_nome(nome):
+    print("Olá,", nome)
+
+mostrar_nome("Marcio")
+
+def somar(a, b):
+    print(a + b)
+
+somar(10, 20)
+
+def dobro(numero):
+    return numero * 2
+
+print(dobro(8))
+
+def verificar_numero(numero):
+    if numero % 2 == 0:
+        print("Par")
+    else:
+        print("Ímpar")
+
+verificar_numero(7)
+
+def calcular_media(nota1, nota2):
+    return (nota1 + nota2) / 2
+
+print(calcular_media(8.0, 6.0))
+
+def verificar_aprovacao(media):
+    if media >= 60:
+        return "Aprovado"
+    else:
+        return "Reprovado"
+
+print(verificar_aprovacao(75))
+
+def cadastrar():
+    nome = input("Digite seu nome: ")
+    idade = input("Digite sua idade: ")
+    print("Nome:", nome)
+    print("Idade:", idade)
+
+cadastrar()
+
+def somar_calc(a, b):
+    return a + b
+
+def subtrair(a, b):
+    return a - b
+
+def multiplicar(a, b):
+    return a * b
+
+def dividir(a, b):
+    if b == 0:
+        return "Erro: divisão por zero"
+    return a / b
+
+while True:
+    print("1 - Somar")
+    print("2 - Subtrair")
+    print("3 - Multiplicar")
+    print("4 - Dividir")
+    print("5 - Sair")
+    opcao = input("Escolha uma opção: ")
+    if opcao == "5":
+        print("Saindo...")
+        break
+    if opcao in ["1", "2", "3", "4"]:
+        num1 = float(input("Digite o primeiro número: "))
+        num2 = float(input("Digite o segundo número: "))
+        if opcao == "1":
+            print("Resultado:", somar_calc(num1, num2))
+        elif opcao == "2":
+            print("Resultado:", subtrair(num1, num2))
+        elif opcao == "3":
+            print("Resultado:", multiplicar(num1, num2))
+        elif opcao == "4":
+            print("Resultado:", dividir(num1, num2))
+    else:
+        print("Opção inválida!")
