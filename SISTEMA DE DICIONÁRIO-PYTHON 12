@@ -1,0 +1,75 @@
+# SISTEMA DE DICIONÁRIO
+ # Arquivo: dicionario.txt | Formato: Palavra;Significado
+ def incluir_palavra():
+     palavra = input("Digite a palavra: ").strip()
+     significado = input("Digite o significado: ").strip()
+     
+     with open("dicionario.txt", "a", encoding="utf-8") as arquivo:
+         arquivo.write(f"{palavra};{significado}\n")
+
+print(f"✅ Palavra '{palavra}' cadastrada com sucesso!\n")
+ def pesquisar_palavra():
+     termo = input("Qual palavra deseja pesquisar? ").strip()
+     encontrada = False
+     
+     with open("dicionario.txt", "r", encoding="utf-8") as arquivo:
+         for linha in arquivo:
+             if ";" in linha:
+                 palavra, significado = linha.strip().split(";", 1)
+                 if palavra.lower() == termo.lower():
+                     print(f"\n📖 {palavra}: {significado}")
+                     encontrada = True
+                     break
+
+if not encontrada:
+         print(f"\n❌ A palavra '{termo}' não foi encontrada no dicionário.")
+     print()
+ def excluir_palavra():
+     termo = input("Qual palavra deseja excluir? ").strip()
+     linhas_restantes = []
+     excluida = False
+     
+     with open("dicionario.txt", "r", encoding="utf-8") as arquivo:
+         for linha in arquivo:
+             if ";" in linha:
+                 palavra = linha.strip().split(";", 1)[0]
+                 if palavra.lower() != termo.lower():
+                     linhas_restantes.append(linha)
+                 else:
+                     excluida = True
+
+with open("dicionario.txt", "w", encoding="utf-8") as arquivo:
+         arquivo.writelines(linhas_restantes)
+     
+     if excluida:
+         print(f"✅ Palavra '{termo}' removida com sucesso!\n")
+     else:
+         print(f"❌ Palavra '{termo}' não encontrada.\n")
+ # --- MENU PRINCIPAL ---
+ while True:
+     print("=" * 40)
+     print("        📖 DICIONÁRIO EM PYTHON")
+     print("=" * 40)
+     print("1. Incluir nova palavra")
+     print("2. Pesquisar significado")
+     print("3. Excluir palavra")
+     print("4. Sair")
+     print("=" * 40)opcao = input("Escolha uma opção (1-4): ")
+     
+     if opcao == "1":
+         incluir_palavra()
+     elif opcao == "2":
+         pesquisar_palavra()
+     elif opcao == "3":
+         excluir_palavra()
+     elif opcao == "4":
+         print("👋 Encerrando o programa... Até logo!")
+         break
+     else:
+         print("⚠️ Opção inválida! Digite de 1 a 4.\n")
+
+
+
+
+
+
