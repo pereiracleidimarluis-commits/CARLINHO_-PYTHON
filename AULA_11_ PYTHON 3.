@@ -1,0 +1,298 @@
+O Desafio Resolvido: Sistema de Dicionário
+Vou criar um arquivo dicionario.txt no formato Palavra;Significado
+
+Lógica que vamos usar:
+
+Incluir -> modo 'a'
+Pesquisar -> modo 'r' + split(';')
+Excluir -> truque de ler tudo, filtrar e reescrever com 'w'
+Aqui está o código completo, comentado e pronto para rodar:
+
+Python
+def incluir_palavra():
+    palavra = input("Digite a palavra: ").strip()
+    significado = input(f"Digite o significado de '{palavra}': ").strip()
+
+    if not palavra or not significado:
+        print("Erro: Palavra e significado não podem estar vazios!\n")
+        return
+
+    # Verificação extra: não deixar duplicar
+    try:
+        with open("dicionario.txt", "r", encoding="utf-8") as arquivo:
+            for linha in arquivo:
+                if ";" in linha:
+                    p_existente = linha.split(";", 1)[0].strip()
+                    if p_existente.lower() == palavra.lower():
+                        print(f"A palavra '{palavra}' já existe no dicionário!\n")
+                        return
+    except FileNotFoundError:
+        pass # Arquivo ainda não existe, tudo bem
+
+    with open("dicionario.txt", "a", encoding="utf-8") as arquivo:
+        arquivo.write(f"{palavra};{significado}\n")
+
+    print(f"'{palavra}' incluída com sucesso!\n")
+
+def pesquisar_palavra():
+    termo = input("Qual palavra deseja pesquisar? ").strip()
+    encontrado = False
+
+    try:
+        with open("dicionario.txt", "r", encoding="utf-8") as arquivo:
+            for linha in arquivo:
+                if not linha.strip() or ";" not in linha:
+                    continue
+
+                # O 1 no split garante que se o significado tiver ; ele não quebre
+                colunas = linha.strip().split(";", 1)
+                palavra = colunas[0]
+                significado = colunas[1]
+
+                if palavra.lower() == termo.lower():
+                    print(f"\n>> Encontrado!")
+                    print(f"Palavra: {palavra}")
+                    print(f"Significado: {significado}\n")
+                    encontrado = True
+                    break
+    except FileNotFoundError:
+        print("Dicionário ainda não existe. Inclua uma palavra primeiro.\n")
+        return
+
+    if not encontrado:
+        print(f"A palavra '{termo}' não foi encontrada no dicionário.\n")
+
+def excluir_palavra():
+    termo = input("Qual palavra deseja excluir? ").strip()
+    linhas_salvas = []
+    excluiu = False
+
+    try:
+        # Passo 1: Ler e filtrar
+        with open("dicionario.txt", "r", encoding="utf-8") as arquivo:
+            for linha in arquivo:
+                if not linha.strip() or ";" not in linha:
+                    continue
+
+                palavra = linha.split(";", 1)[0].strip()
+
+                # Guarda tudo que NÃO é o que queremos excluir
+                if palavra.lower()!= termo.lower():
+                    linhas_salvas.append(linha)
+                else:
+                    excluiu = True
+
+        # Passo 2: Sobrescrever o arquivo
+        if excluiu:
+            with open("dicionario.txt", "w", encoding="utf-8") as arquivo:
+                arquivo.writelines(linhas_salvas)
+            print(f"'{termo}' foi removida com sucesso!\n")
+        else:
+            print(f"A palavra '{termo}' não foi encontrada, nada para excluir.\n")
+
+    except FileNotFoundError:
+        print("Dicionário ainda não existe.\n")
+
+def listar_tudo():
+    try:
+        with open("dicionario.txt", "r", encoding="utf-8") as arquivo:
+            conteudo = arquivo.read().strip()
+            if not conteudo:
+                print("Dicionário vazio.\n")
+            else:
+                print("\n--- DICIONÁRIO COMPLETO ---")
+                print(conteudo)
+                print("---------------------------\n")
+    except FileNotFoundError:
+        print("Dicionário ainda não existe.\n")
+
+# --- MENU PRINCIPAL ---
+def menu():
+    while True:
+        print("===== DICIONÁRIO SIMPLES =====")
+        print("1 - Incluir nova palavra")
+        print("2 - Pesquisar significado")
+        print("3 - Excluir palavra")
+        print("4 - Listar todas as palavras")
+        print("5 - Sair")
+
+        opcao = input("Escolha uma opção: ").strip()
+
+        if opcao == "1":
+            incluir_palavra()
+        elif opcao == "2":
+            pesquisar_palavra()
+        elif opcao == "3":
+            excluir_palavra()
+        elif opcao == "4":
+            listar_tudo()
+        elif opcao == "5":
+            print("Saindo do sistema. Até logo!")
+            break
+        else:
+            print("Opção inválida! Tente de 1 a 5.\n")
+
+# Inicia o programa
+if _name_ == "_main_":
+    menu()
+
+Mostrar menos
+Por que esse código é o padrão de mercado?
+1. with open() sempre: Se der erro no meio da escrita, o arquivo fecha sozinho e não corrompe.
+
+2. encoding="utf-8" sempre: Garante que palavras com acento como avião, coração não quebrem.
+
+3. split(";", 1): Esse 1 é o pulo do gato. Se o significado for Linguagem de programação; muito usada, ele divide só no primeiro ; e não estraga seu arquivo. Ficaria ['Python', 'Linguagem de programação; muito usada'].
+
+4. .lower() na pesquisa: O usuário pode digitar python, PYTHON ou Python que vai encontrar do mesmo jeito.
+
+5. try...except FileNotFoundError: Na primeira vez que você rodar, o dicionario.txt não existe. Sem isso o programa quebra. Com isso, ele cria na hora que você incluir a primeira palavra.
+O Desafio Resolvido: Sistema de Dicionário
+Vou criar um arquivo dicionario.txt no formato Palavra;Significado
+
+Lógica que vamos usar:
+
+Incluir -> modo 'a'
+Pesquisar -> modo 'r' + split(';')
+Excluir -> truque de ler tudo, filtrar e reescrever com 'w'
+Aqui está o código completo, comentado e pronto para rodar:
+
+Python
+def incluir_palavra():
+    palavra = input("Digite a palavra: ").strip()
+    significado = input(f"Digite o significado de '{palavra}': ").strip()
+
+    if not palavra or not significado:
+        print("Erro: Palavra e significado não podem estar vazios!\n")
+        return
+
+    # Verificação extra: não deixar duplicar
+    try:
+        with open("dicionario.txt", "r", encoding="utf-8") as arquivo:
+            for linha in arquivo:
+                if ";" in linha:
+                    p_existente = linha.split(";", 1)[0].strip()
+                    if p_existente.lower() == palavra.lower():
+                        print(f"A palavra '{palavra}' já existe no dicionário!\n")
+                        return
+    except FileNotFoundError:
+        pass # Arquivo ainda não existe, tudo bem
+
+    with open("dicionario.txt", "a", encoding="utf-8") as arquivo:
+        arquivo.write(f"{palavra};{significado}\n")
+
+    print(f"'{palavra}' incluída com sucesso!\n")
+
+def pesquisar_palavra():
+    termo = input("Qual palavra deseja pesquisar? ").strip()
+    encontrado = False
+
+    try:
+        with open("dicionario.txt", "r", encoding="utf-8") as arquivo:
+            for linha in arquivo:
+                if not linha.strip() or ";" not in linha:
+                    continue
+
+                # O 1 no split garante que se o significado tiver ; ele não quebre
+                colunas = linha.strip().split(";", 1)
+                palavra = colunas[0]
+                significado = colunas[1]
+
+                if palavra.lower() == termo.lower():
+                    print(f"\n>> Encontrado!")
+                    print(f"Palavra: {palavra}")
+                    print(f"Significado: {significado}\n")
+                    encontrado = True
+                    break
+    except FileNotFoundError:
+        print("Dicionário ainda não existe. Inclua uma palavra primeiro.\n")
+        return
+
+    if not encontrado:
+        print(f"A palavra '{termo}' não foi encontrada no dicionário.\n")
+
+def excluir_palavra():
+    termo = input("Qual palavra deseja excluir? ").strip()
+    linhas_salvas = []
+    excluiu = False
+
+    try:
+        # Passo 1: Ler e filtrar
+        with open("dicionario.txt", "r", encoding="utf-8") as arquivo:
+            for linha in arquivo:
+                if not linha.strip() or ";" not in linha:
+                    continue
+
+                palavra = linha.split(";", 1)[0].strip()
+
+                # Guarda tudo que NÃO é o que queremos excluir
+                if palavra.lower()!= termo.lower():
+                    linhas_salvas.append(linha)
+                else:
+                    excluiu = True
+
+        # Passo 2: Sobrescrever o arquivo
+        if excluiu:
+            with open("dicionario.txt", "w", encoding="utf-8") as arquivo:
+                arquivo.writelines(linhas_salvas)
+            print(f"'{termo}' foi removida com sucesso!\n")
+        else:
+            print(f"A palavra '{termo}' não foi encontrada, nada para excluir.\n")
+
+    except FileNotFoundError:
+        print("Dicionário ainda não existe.\n")
+
+def listar_tudo():
+    try:
+        with open("dicionario.txt", "r", encoding="utf-8") as arquivo:
+            conteudo = arquivo.read().strip()
+            if not conteudo:
+                print("Dicionário vazio.\n")
+            else:
+                print("\n--- DICIONÁRIO COMPLETO ---")
+                print(conteudo)
+                print("---------------------------\n")
+    except FileNotFoundError:
+        print("Dicionário ainda não existe.\n")
+
+# --- MENU PRINCIPAL ---
+def menu():
+    while True:
+        print("===== DICIONÁRIO SIMPLES =====")
+        print("1 - Incluir nova palavra")
+        print("2 - Pesquisar significado")
+        print("3 - Excluir palavra")
+        print("4 - Listar todas as palavras")
+        print("5 - Sair")
+
+        opcao = input("Escolha uma opção: ").strip()
+
+        if opcao == "1":
+            incluir_palavra()
+        elif opcao == "2":
+            pesquisar_palavra()
+        elif opcao == "3":
+            excluir_palavra()
+        elif opcao == "4":
+            listar_tudo()
+        elif opcao == "5":
+            print("Saindo do sistema. Até logo!")
+            break
+        else:
+            print("Opção inválida! Tente de 1 a 5.\n")
+
+# Inicia o programa
+if _name_ == "_main_":
+    menu()
+
+Mostrar menos
+Por que esse código é o padrão de mercado?
+1. with open() sempre: Se der erro no meio da escrita, o arquivo fecha sozinho e não corrompe.
+
+2. encoding="utf-8" sempre: Garante que palavras com acento como avião, coração não quebrem.
+
+3. split(";", 1): Esse 1 é o pulo do gato. Se o significado for Linguagem de programação; muito usada, ele divide só no primeiro ; e não estraga seu arquivo. Ficaria ['Python', 'Linguagem de programação; muito usada'].
+
+4. .lower() na pesquisa: O usuário pode digitar python, PYTHON ou Python que vai encontrar do mesmo jeito.
+
+5. try...except FileNotFoundError: Na primeira vez que você rodar, o dicionario.txt não existe. Sem isso o programa quebra. Com isso, ele cria na hora que você incluir a primeira palavra.
