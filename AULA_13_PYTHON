@@ -1,0 +1,45 @@
+## Questão 1: Criar e escrever no arquivo
+with open("anotacoes.txt", "w", encoding="utf-8") as arquivo:
+    arquivo.write("1. Estudar Python todos os dias\n")
+    arquivo.write("2. Fazer todos os exercícios da aula\n")
+    arquivo.write("3. Entregar as tarefas no prazo\n")
+
+print("✅ Arquivo criado e salvo com sucesso!") 
+
+# Questão 2: Ler e exibir o conteúdo
+with open("anotacoes.txt", "r", encoding="utf-8") as arquivo:
+    conteudo = arquivo.read()
+    print(conteudo)
+
+Questão 3: Adicionar nova linha no final
+with open("anotacoes.txt", "a", encoding="utf-8") as arquivo:
+    arquivo.write("Estudar Python todos os dias!\n")
+
+print("✅ Linha adicionada!")
+
+# Questão 4: Contar linhas
+total_linhas = 0
+
+with open("anotacoes.txt", "r", encoding="utf-8") as arquivo:
+    for linha in arquivo:
+        total_linhas = total_linhas + 1
+
+print(f"📄 O arquivo tem {total_linhas} linhas.")
+
+# Questão 5: Tratar arquivo inexistente
+try:
+    with open("dados_secretos.txt", "r", encoding="utf-8") as arquivo:
+        conteudo = arquivo.read()
+        print(conteudo)
+except FileNotFoundError:
+    print("Erro: O arquivo solicitado não foi encontrado.")
+
+
+Tabela
+   
+Modo O que faz 
+ "w"  Escreve → cria ou sobrescreve 
+ "r"  Lê → só leitura 
+ "a"  Acrescenta → adiciona no final sem apagar
+
+
