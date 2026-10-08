@@ -1,0 +1,65 @@
+ # 1️⃣ Função: Adicionar tarefa
+ def adicionar_tarefa():
+     tarefa = input("Digite o nome da tarefa: ")
+     with open("tarefas.txt", "a", encoding="utf-8") as arquivo:
+         arquivo.write(tarefa + "\n")
+     print("✅ Tarefa adicionada com sucesso!\n")
+ # 2️⃣ Função: Listar todas as tarefas
+ def listar_tarefas():
+     print("\n📋 Lista de Tarefas:")
+     with open("tarefas.txt", "r", encoding="utf-8") as arquivo:
+         linhas = arquivo.readlines()
+         if len(linhas) == 0:
+             print("⚠️ Nenhuma tarefa cadastrada.")
+         else:
+             for i, tarefa in enumerate(linhas, 1):
+                 print(f"{i}. {tarefa.strip()}")
+     print()
+ # 3️⃣ Função: Limpar todas as tarefas
+ def limpar_tarefas():
+     with open("tarefas.txt", "w", encoding="utf-8") as arquivo:
+         arquivo.write("")
+     print("🗑️ Todas as tarefas foram removidas!\n")
+ # 4️⃣ Função: Mostrar o menu
+ def mostrar_menu():
+     print("=" * 35)
+     print("    📝 SISTEMA DE TAREFAS")
+     print("=" * 35)
+     print("1. Adicionar Tarefa")
+     print("2. Listar Tarefas")
+     print("3. Limpar Todas as Tarefas")
+     print("4. Sair")
+     print("=" * 35)
+ # 5️⃣ Programa Principal — Loop do Menu
+ while True:
+     mostrar_menu()
+     opcao = input("Escolha uma opção: ")
+     
+     if opcao == "1":
+         adicionar_tarefa()
+     elif opcao == "2":
+         listar_tarefas()
+     elif opcao == "3":
+         limpar_tarefas()
+     elif opcao == "4":
+         print("👋 Saindo do programa... Até logo!")
+         break
+     else:
+         print("❌ Opção inválida! Tente novamente.\n")
+
+         1. Cria um arquivo novo com o nome:  tarefas.py 
+
+         Tabela
+   
+Requisito Usamos 
+Funções ( def ) ✅  adicionar_tarefa ,  listar_tarefas ,  limpar_tarefas ,  mostrar_menu  
+Repetição ( while ) ✅ Mantém o menu rodando até escolher "Sair" 
+Condição ( if/elif/else ) ✅ Escolhe o que fazer conforme a opção 
+Arquivos ( with open ) ✅ Modo  "a"  para adicionar,
+
+"w"  para limpar,  "r"  para ler 
+Listas ✅  readlines()  lê tudo como lista e  enumerate()  numera
+
+ Sistema de Gerenciamento de Tarefas — Código Completo​
+
+         
