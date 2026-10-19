@@ -1,0 +1,45 @@
+📋 Explicação do Trabalho — Comunicação entre Cliente e Servidor
+ 
+🖥️ Arquivo 1:  cliente.py 
+ 
+É o quem inicia a conversa. Ele procura o servidor, manda uma mensagem e espera pela resposta.
+ 
+O que ele faz passo a passo:
+ 
+1. Conecta no computador do servidor pela porta 5000
+​
+2. Digita e envia uma mensagem
+​
+3. Espera a resposta voltar
+​
+4. Mostra a resposta na tela
+ 
+🖥️ Arquivo 2:  server.py 
+ 
+É o quem fica esperando. Ele fica ali aguardando alguém se conectar para poder conversar.
+ 
+O que ele faz passo a passo:
+ 
+1. Prepara o computador para receber conexões na porta 5000
+​
+2. Fica no modo de escuta: "Aguardando Conexão..."
+​
+3. Quando alguém chega, recebe a mensagem
+​
+4. Digita uma resposta e manda de volta
+​
+5. Encerra a conversa quando terminam
+ 
+💡 Como funciona os dois juntos:
+ 
+Pense assim: o Cliente é você que liga o telefone 📞, e o Servidor é a pessoa que atende 📱. Um manda, o outro recebe e responde. Assim a gente consegue trocar informações entre dois computadores! 🌐
+ 
+ 
+ 
+📂 Pra salvar na sua pasta:
+ 
+1. Clica em Arquivo → Salvar como 📁
+​
+2. Escolhe a pasta "carrinho python" que você criou
+​
+3. Dá um nome bem claro, exemplo:  explicacao_cliente_servidor.txt
