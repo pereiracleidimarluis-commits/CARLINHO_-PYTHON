@@ -1,19 +1,4 @@
-
- 
-✅ O que vai em cada pasta:
- 
-📂 Pasta "servidor" → Fica o arquivo que recebe a conexão, lê o arquivo e responde
-📂 Pasta "cliente" → Fica o programa que pede o nome e mostra a resposta
-📄 alunos.txt → Fica junto com o servidor, com um nome por linha, exemplo:
- 
-plaintext
-  
-Maria
-João
-Ana
-Carlos
-
- import socket
+import socket
  def buscar_aluno(nome, arquivo="alunos.txt"):
      try:
          with open(arquivo, "r", encoding="utf-8") as f:
@@ -40,4 +25,4 @@ Carlos
      resposta = "Aluno reprovado"
  conexao.send(resposta.encode('utf-8'))
  conexao.close()
- servidor.close(
+ servidor.close()
