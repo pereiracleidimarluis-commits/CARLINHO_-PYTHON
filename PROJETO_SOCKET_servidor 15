@@ -1,0 +1,43 @@
+
+ 
+✅ O que vai em cada pasta:
+ 
+📂 Pasta "servidor" → Fica o arquivo que recebe a conexão, lê o arquivo e responde
+📂 Pasta "cliente" → Fica o programa que pede o nome e mostra a resposta
+📄 alunos.txt → Fica junto com o servidor, com um nome por linha, exemplo:
+ 
+plaintext
+  
+Maria
+João
+Ana
+Carlos
+
+ import socket
+ def buscar_aluno(nome, arquivo="alunos.txt"):
+     try:
+         with open(arquivo, "r", encoding="utf-8") as f:
+             for linha in f:
+                 if linha.strip() == nome.strip():
+                     return True
+         return False
+     except FileNotFoundError:
+         print("Arquivo alunos.txt não encontrado!")
+         return False
+ HOST = '127.0.0.1'
+ PORTA = 5000
+ servidor = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+ servidor.bind((HOST, PORTA))
+ servidor.listen(1)
+ print(f"Servidor rodando na porta {PORTA}...")
+ conexao, endereco = servidor.accept()
+ print(f"Conectado com {endereco}")
+ dados = conexao.recv(1024).decode('utf-8')
+ print(f"Recebido: {dados}")
+ if buscar_aluno(dados):
+     resposta = "Aluno aprovado"
+ else:
+     resposta = "Aluno reprovado"
+ conexao.send(resposta.encode('utf-8'))
+ conexao.close()
+ servidor.close(
