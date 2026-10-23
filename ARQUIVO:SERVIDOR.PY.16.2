@@ -1,0 +1,32 @@
+import socket
+
+HOST = '127.0.0.1'
+PORT = 5000
+
+# Carrega alunos do arquivo alunos.txt
+try:
+    with open('alunos.txt', 'r', encoding='utf-8') as arq:
+        alunos_aprovados = [linha.strip().lower() for linha in arq if linha.strip()]
+except FileNotFoundError:
+    alunos_aprovados = ["joao", "maria", "pedro", "ana"]
+
+print(f"Lista carregada: {alunos_aprovados}")
+print(f"Servidor ouvindo em {HOST}:{PORT}...")
+
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    s.bind((HOST, PORT))
+    s.listen()
+    while True:
+        conn, addr = s.accept()
+        with conn:
+            print(f"\nConectado por {addr}")
+            nome = conn.recv(1024).decode('utf-8').strip()
+            print(f"Nome recebido: {nome}")
+
+            if nome.lower() in alunos_aprovados:
+                resposta = "Aluno aprovado"
+            else:
+                resposta = "aluno reprovado"
+
+            conn.sendall(resposta.encode('utf-8'))
+            print(f"Enviado: {resposta}")
