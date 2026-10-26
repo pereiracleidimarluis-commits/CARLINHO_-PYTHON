@@ -1,0 +1,11 @@
+def saudar_aluno(nome):
+     return f"Olá, {nome}! Seja bem-vindo à aula de Python."
+
+
+📄 Arquivo 2 → principal.py
+from minhas_funcoes import saudar_aluno
+ mensagem = saudar_aluno("Maria")
+ print(mensagem)
+
+
+
