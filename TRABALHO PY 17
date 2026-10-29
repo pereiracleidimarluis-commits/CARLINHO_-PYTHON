@@ -1,0 +1,48 @@
+[08:21, 29/10/2026] Miguel  P 🦣🦣🦬🦣: Pergunta: O que significa POO (OOP) e quais são suas vantagens?
+Resposta: POO é a Programação Orientada a Objetos. Suas vantagens são: organiza melhor o programa, facilita consertar e reutilizar o código, evita escrever trechos iguais várias vezes.
+Explicação: Usamos classes para fazer modelos e objetos para criar os itens do programa, assim o código fica mais arrumado.
+[08:23, 29/10/2026] Miguel  P 🦣🦣🦬🦣: Pergunta: Qual é o módulo nativo do Python para criar ambientes virtuais?
+Resposta: venv
+Explicação: O módulo venv já vem instalado com o Python e serve para criar ambientes separados para cada projeto, evitando conflitos entre os pacotes que usamos.
+[08:25, 29/10/2026] Miguel  P 🦣🦣🦬🦣: # Cria a classe Person
+ class Person:
+   def _init_(self, name, age):
+     self.name = name
+     self.age = age
+   def greet(self):
+     print("Olá, meu nome é " + self.name)
+ # Cria o objeto p1
+ p1 = Person("John", 36)
+ # Chama o método greet
+ p1.greet()
+[08:26, 29/10/2026] Miguel  P 🦣🦣🦬🦣: Pergunta: O que o parâmetro self representa em uma classe do Python?
+Resposta: Uma referência à instância atual da classe
+Explicação: O self serve para o Python saber de qual objeto estamos falando, para acessar seus dados e funções dentro da classe.
+[08:27, 29/10/2026] Miguel  P 🦣🦣🦬🦣: # Cria a classe Car
+ class Car:
+   def _init_(self, brand):
+     self.brand = brand
+   def show(self):
+     print(self.brand)
+ # Cria o objeto c1
+ c1 = Car("Ford")
+ # Chama o método show
+ c1.show()
+[08:29, 29/10/2026] Miguel  P 🦣🦣🦬🦣: Pergunta: Como acessar uma propriedade de um objeto?
+Resposta: Usando a notação de ponto: objeto.propriedade
+Explicação: No Python, colocamos o nome do objeto, um ponto e depois o nome da propriedade para acessar os dados dele.
+[08:30, 29/10/2026] Miguel  P 🦣🦣🦬🦣: class Person:
+   def _init_(self, name, age):
+     self.name = name
+     self.age = age
+   def _str_(self):
+     return f'{self.name}({self.age})'
+ p1 = Person('John', 36)
+ print(p1)
+[08:32, 29/10/2026] Miguel  P 🦣🦣🦬🦣: Pergunta: Qual destes é um método mágico?
+Resposta: init()
+Explicação: Os métodos mágicos começam e terminam com dois traços baixos. O init() é executado automaticamente quando criamos um objeto da classe.
+[08:33, 29/10/2026] Miguel  P 🦣🦣🦬🦣: Pergunta: Qual destes é um método mágico?
+Resposta: init()
+Explicação: Os métodos mágicos começam e terminam com dois traços baixos. O init() é executado automaticamente quando criamos um objeto da classe.
+
