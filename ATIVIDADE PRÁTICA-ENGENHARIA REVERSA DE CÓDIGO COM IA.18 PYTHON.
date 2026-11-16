@@ -1,0 +1,106 @@
+ 
+📖 ETAPA 2 — Engenharia Reversa — Respostas
+ 
+Tabela
+   
+Pergunta Resposta 
+Qual é a finalidade da variável  opcao ? Armazena a escolha do usuário no menu (1, 2 ou 0) para o programa saber o que executar. 
+Para que serve o comando  while ? Cria um laço de repetição: o programa fica rodando até que o usuário digite  0  para sair. 
+O que acontece quando o usuário escolhe a opção 1? O programa pede o nome da tarefa, abre o arquivo  tarefas.txt , sobrescreve o conteúdo com a nova tarefa e fecha o arquivo. 
+Qual é a finalidade do comando  open() ? Abre um arquivo do computador para leitura ou escrita. 
+Qual é a diferença entre os modos  "r"  e  "w" ?  "r"  = somente leitura (não altera nada);  "w"  = escrita/apaga tudo (cria arquivo novo ou apaga o que já tinha). 
+Para que serve o comando  readlines() ? Lê o arquivo e retorna uma lista onde cada item é uma linha do texto. 
+Qual é a função do comando  close() ? Fecha o arquivo liberando a memória. Sem ele o arquivo pode ficar corrompido. 
+ 
+ 
+ 
+🔍 ETAPA 3 — Identificação dos Erros
+ 
+❌ Problema 1 — Arquivo sobrescreve o conteúdo
+ 
+- Linha:  arquivo = open("tarefas.txt", "w")  (na opção 1)
+​
+- Por que acontece: O modo  "w"  apaga tudo que já está no arquivo antes de escrever de novo. Por isso só a última tarefa ficava salva!
+ 
+❌ Problema 2 — Cada tarefa não fica em uma linha separada
+ 
+- Linha:  arquivo.write(tarefa) 
+​
+- Por que acontece: Quando escreve, não pula de linha. Se funcionasse, a próxima tarefa ficaria colada na anterior.
+
+opcao = -1
+ while opcao != 0:
+     print("\n===== MENU DE TAREFAS =====")
+     print("1 - Cadastrar tarefa")
+     print("2 - Listar tarefas")
+     print("3 - Quantidade de tarefas cadastradas")
+     print("0 - Sair")
+     try:
+         opcao = int(input("Escolha uma opção: "))
+     except ValueError:
+         print("Por favor, digite apenas números!")
+         continue
+     if opcao == 1:
+         tarefa = input("Digite a tarefa: ")
+         # MUDANÇA: "a" = modo de ADIÇÃO, não apaga mais o que já tem
+         arquivo = open("tarefas.txt", "a", encoding="utf-8")
+         arquivo.write(tarefa + "\n")  # Adiciona quebra de linha
+         arquivo.close()
+         print("✅ Tarefa cadastrada com sucesso!")
+     elif opcao == 2:
+         arquivo = open("tarefas.txt", "r", encoding="utf-8")
+         linhas = arquivo.readlines()
+         arquivo.close()
+         print("\n===== LISTA DE TAREFAS =====")
+         if len(linhas) == 0:
+             print("Nenhuma tarefa cadastrada.")
+         else:
+             for tarefa in linhas:
+                 print("- " + tarefa.strip())
+     elif opcao == 3:
+         arquivo = open("tarefas.txt", "r", encoding="utf-8")
+         linhas = arquivo.readlines()
+         arquivo.close()
+         
+         total = len(linhas)
+         print(f"\n📋 Total de tarefas cadastradas: {total}")
+         if total > 0:
+             print("Tarefas:")
+             for tarefa in linhas:
+                 print("- " + tarefa.strip())
+     elif opcao == 0:
+         print("👋 Programa encerrado!")
+     else:
+         print("❌ Opção inválida! Tente novamente.")
+
+ ETAPA 5 — Desafio Individual
+ 
+Já está incluso no código acima! A opção 3 mostra:
+ 
+- Quantidade total de tarefas
+​
+- Lista com todas as tarefas cadastradas
+ 
+ 
+ 
+🤖 ETAPA 6 — Utilização de Inteligência Artificial
+ 
+Tabela
+   
+Item Resposta 
+Ferramenta utilizada Gemini / ChatGPT 
+Pergunta feita à IA "Por que quando eu cadastro uma nova tarefa no Python ela apaga a anterior? O que significa 'w' e 'a' no open()?" 
+Resposta da IA Explicou que o modo  "w"  sobrescreve e o modo  "a"  acrescenta conteúdo ao final do arquivo sem apagar. 
+Concorda com a solução? Sim, está correta. O problema era realmente o modo de abertura do arquivo. 
+O que aprendi Entendi a diferença entre sobrescrever e acrescentar informações em um arquivo. Também aprendi a sempre fechar os arquivos após usá-los e a prever o comportamento do código antes de rodar. 
+ 
+ 
+ 
+📋 CHECKLIST DE ENTREGA
+ 
+✅ Arquivo  tarefas.py  — código corrigido
+✅ Arquivo  tarefas.txt  — vai ficando com as tarefas que você cadastra
+
+
+
+
