@@ -1,0 +1,141 @@
+Etapa 1 – Investigação
+​Comportamento encontrado ao executar o programa original:
+​1. Ao cadastrar a primeira tarefa ("Estudar Python"), o arquivo tarefas.txt é criado e a tarefa é salva.
+​2. Ao cadastrar a segunda tarefa ("Fazer exercícios"), o programa utiliza o modo de escrita "w" (write), que apaga todo o conteúdo anterior do arquivo para escrever o novo texto. Como resultado, a tarefa "Estudar Python" desaparece e apenas "Fazer exercícios" fica salva.
+​3. Ao listar as tarefas, apenas a última cadastrada é exibida.
+​Etapa 2 – Engenharia Reversa (Respostas)
+​Qual é a função da variável opcao?
+Armazenar o número digitado pelo usuário no menu para controlar qual bloco de código será executado e também servir de condição para manter o loop while rodando (enquanto opcao != 0).
+​Para que serve o comando while?
+Criar um loop de repetição que mantém o menu ativo na tela de forma contínua, permitindo que o usuário realize várias operações até decidir sair digitando 0.
+​O que acontece quando o usuário escolhe a opção 1?
+O programa solicita que o usuário digite uma tarefa, abre o arquivo tarefas.txt, grava o texto digitado e fecha o arquivo.
+​Qual é a finalidade do comando open()?
+Abrir um arquivo no computador (neste caso, o tarefas.txt) permitindo interagir com ele através de modos específicos de operação (leitura, escrita, etc.).
+​Qual é a diferença entre os modos "r" e "w"?
+​O modo "r" (read) abre o arquivo apenas para leitura (o arquivo precisa existir).
+​O modo "w" (write) abre o arquivo para escrita, criando um arquivo novo ou apagando todo o conteúdo anterior caso o arquivo já exista.
+​Para que serve o comando readlines()?
+Ler todas as linhas de um arquivo aberto e retorná-las em formato de lista, onde cada elemento da lista é uma linha do arquivo.
+​Qual é a função do comando close()?
+Fechar o arquivo após o término da operação, liberando os recursos do sistema operacional alocados para aquele arquivo.
+​Etapa 3 – Identificação dos Erros
+​1. Problema 1 (Perda de dados ao cadastrar): O uso do modo "w" no comando open("tarefas.txt", "w") limpa o arquivo a cada novo cadastro.
+​Por que acontece: O modo "w" foi feito para substituir arquivos, não para acumular registros.
+​Linha a modificar: Linha do open na opção 1 (alterar de "w" para "a" — append).
+​2. Problema 2 (Falta de quebra de linha): O programa grava as tarefas sem adicionar uma quebra de linha (\n), fazendo com que todas fiquem grudadas caso o modo de gravação mude.
+​Por que acontece: O input() não inclui o caractere de nova linha automático ao salvar no arquivo de texto.
+​Linha a modificar: Na gravação da tarefa (arquivo.write(tarefa + "\n")).
+​3. Problema 3 (Erro se o arquivo não existir): Se o usuário tentar listar as tarefas logo na primeira execução do programa (antes de cadastrar qualquer coisa), o arquivo tarefas.txt ainda não foi criado, gerando um erro de exceção (FileNotFoundError).
+​Etapa 4 e 5 – Código Corrigido (tarefas.py) com o Desafio (Opção 3)
+​O código abaixo corrige todos os problemas apontados, garante que as tarefas anteriores não sejam apagadas, coloca cada tarefa em uma linha diferente e já inclui a Opção 3 (Quantidade e listagem de tarefas cadastradas) solicitada no desafio individual:Etapa 1 – Investigação
+​Comportamento encontrado ao executar o programa original:
+​1. Ao cadastrar a primeira tarefa ("Estudar Python"), o arquivo tarefas.txt é criado e a tarefa é salva.
+​2. Ao cadastrar a segunda tarefa ("Fazer exercícios"), o programa utiliza o modo de escrita "w" (write), que apaga todo o conteúdo anterior do arquivo para escrever o novo texto. Como resultado, a tarefa "Estudar Python" desaparece e apenas "Fazer exercícios" fica salva.
+​3. Ao listar as tarefas, apenas a última cadastrada é exibida.
+​Etapa 2 – Engenharia Reversa (Respostas)
+​Qual é a função da variável opcao?
+Armazenar o número digitado pelo usuário no menu para controlar qual bloco de código será executado e também servir de condição para manter o loop while rodando (enquanto opcao != 0).
+​Para que serve o comando while?
+Criar um loop de repetição que mantém o menu ativo na tela de forma contínua, permitindo que o usuário realize várias operações até decidir sair digitando 0.
+​O que acontece quando o usuário escolhe a opção 1?
+O programa solicita que o usuário digite uma tarefa, abre o arquivo tarefas.txt, grava o texto digitado e fecha o arquivo.
+​Qual é a finalidade do comando open()?
+Abrir um arquivo no computador (neste caso, o tarefas.txt) permitindo interagir com ele através de modos específicos de operação (leitura, escrita, etc.).
+​Qual é a diferença entre os modos "r" e "w"?
+​O modo "r" (read) abre o arquivo apenas para leitura (o arquivo precisa existir).
+​O modo "w" (write) abre o arquivo para escrita, criando um arquivo novo ou apagando todo o conteúdo anterior caso o arquivo já exista.
+​Para que serve o comando readlines()?
+Ler todas as linhas de um arquivo aberto e retorná-las em formato de lista, onde cada elemento da lista é uma linha do arquivo.
+​Qual é a função do comando close()?
+Fechar o arquivo após o término da operação, liberando os recursos do sistema operacional alocados para aquele arquivo.
+​Etapa 3 – Identificação dos Erros
+​1. Problema 1 (Perda de dados ao cadastrar): O uso do modo "w" no comando open("tarefas.txt", "w") limpa o arquivo a cada novo cadastro.
+​Por que acontece: O modo "w" foi feito para substituir arquivos, não para acumular registros.
+​Linha a modificar: Linha do open na opção 1 (alterar de "w" para "a" — append).
+​2. Problema 2 (Falta de quebra de linha): O programa grava as tarefas sem adicionar uma quebra de linha (\n), fazendo com que todas fiquem grudadas caso o modo de gravação mude.
+​Por que acontece: O input() não inclui o caractere de nova linha automático ao salvar no arquivo de texto.
+​Linha a modificar: Na gravação da tarefa (arquivo.write(tarefa + "\n")).
+​3. Problema 3 (Erro se o arquivo não existir): Se o usuário tentar listar as tarefas logo na primeira execução do programa (antes de cadastrar qualquer coisa), o arquivo tarefas.txt ainda não foi criado, gerando um erro de exceção (FileNotFoundError).
+​Etapa 4 e 5 – Código Corrigido (tarefas.py) com o Desafio (Opção 3)
+​O código abaixo corrige todos os problemas apontados, garante que as tarefas anteriores não sejam apagadas, coloca cada tarefa em uma linha diferente e já inclui a Opção 3
+(Quantidade e listagem de tarefas cadastradas) solicitada no desafio individual:
+
+opcao = -1
+
+while opcao != 0:
+    print("\n===== MENU DE TAREFAS =====")
+    print("1 - Cadastrar tarefa")
+    print("2 - Listar tarefas")
+    print("3 - Quantidade de tarefas cadastradas")
+    print("0 - Sair")
+
+    opcao = int(input("Escolha uma opção: "))
+
+    if opcao == 1:
+        tarefa = input("Digite a tarefa: ")
+
+        # Alterado para "a" (append) para adicionar ao final sem apagar as anteriores
+        # Adicionado "\n" para que cada tarefa fique em uma linha separada
+        arquivo = open("tarefas.txt", "a", encoding="utf-8")
+        arquivo.write(tarefa + "\n")
+        arquivo.close()
+
+        print("Tarefa cadastrada com sucesso!")
+
+    elif opcao == 2:
+        try:
+            arquivo = open("tarefas.txt", "r", encoding="utf-8")
+            linhas = arquivo.readlines()
+            arquivo.close()
+
+            print("\n===== LISTA DE TAREFAS =====")
+            if not linhas:
+                print("Nenhuma tarefa cadastrada.")
+            else:
+                for i, tarefa in enumerate(linhas, 1):
+                    print(f"{i}. {tarefa.strip()}")
+        except FileNotFoundError:
+            print("\n===== LISTA DE TAREFAS =====")
+            print("Nenhuma tarefa cadastrada ainda (arquivo não encontrado).")
+
+    elif opcao == 3:
+        # Desafio individual: Informa a quantidade e quais tarefas estão registradas
+        try:
+            arquivo = open("tarefas.txt", "r", encoding="utf-8")
+            linhas = arquivo.readlines()
+            arquivo.close()
+
+            quantidade = len(linhas)
+            print(f"\n===== QUANTIDADE DE TAREFAS =====")
+            print(f"Total de tarefas cadastradas: {quantidade}")
+            
+            if quantidade > 0:
+                print("Tarefas registradas:")
+                for tarefa in linhas:
+                    print(f"- {tarefa.strip()}")
+        except FileNotFoundError:
+            print("\n===== QUANTIDADE DE TAREFAS =====")
+            print("Total de tarefas cadastradas: 0 (Arquivo não encontrado)")
+
+    elif opcao == 0:
+        print("Programa encerrado!")----
+
+    else:
+        print("Opção inválida! Escolha uma opção válida.")
+
+Etapa 6 – Registro de Utilização de Inteligência Artificial
+​Para preencher a seção exigida pelo seu professor, você pode utilizar o modelo abaixo:
+​Qual ferramenta de IA utilizada?
+Google Gemini.
+​Qual pergunta ou comando enviado para a IA?
+"Preciso de auxílio detalhado para resolver uma atividade prática de engenharia reversa de código em Python, identificando erros no cadastro e listagem de tarefas em arquivo de texto, corrigindo o código e implementando a opção 3 com contagem e exibição das tarefas."
+​Qual problema a IA ajudou a resolver?
+A IA identificou o motivo pelo qual as tarefas anteriores sumiam (uso incorreto do modo "w" em vez de "a" no comando open()), auxiliou na estruturação da quebra de linha (\n) e implementou a lógica de tratamento de exceções (try-except) para evitar erros caso o arquivo de texto ainda não exista, além de desenvolver a opção de contagem solicitada no desafio.
+​Você concorda com a solução apresentada? Justifique.
+Sim, pois a solução corrige os bugs de lógica de arquivos mantendo a simplicidade exigida para iniciantes em programação, utilizando estruturas nativas do Python como open(), readlines(), strip() e tratamento de blocos condicionais.
+​O que você aprendeu durante a correção?
+Aprendi a diferença prática entre os modos de abertura de arquivos em Python ("w" substitui todo o conteúdo, enquanto "a" adiciona ao final), a importância de usar quebras de linha (\n) ao salvar dados em arquivos de texto, e como utilizar blocos de tratamento de erro para lidar com arquivos ausentes no sistema.-
+
+
+
