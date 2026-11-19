@@ -1,0 +1,116 @@
+
+Arquivo 1: Respostas_Atividade.docx (ou .pdf / .txt)
+
+(Copie todo o texto abaixo, cole em um documento do Word ou Google Docs, coloque seu nome e turma no topo e salve).
+ATIVIDADE PRÁTICA – ENGENHARIA REVERSA DE CÓDIGO COM IA
+Aluno(a): [Coloque seu Nome Completo aqui]
+Turma/Disciplina: [Coloque sua Turma/Disciplina aqui]
+
+Etapa 1 – Investigação
+
+Registro do comportamento encontrado nos testes:
+Ao executar o código original e cadastrar as tarefas "Estudar Python" e "Fazer exercícios", observei os seguintes comportamentos:
+• Perda de dados (Sobrescrita): Ao selecionar a opção 2 - Listar tarefas, apenas a última tarefa digitada ("Fazer exercícios") apareceu na tela. A primeira tarefa foi apagada.
+• Falta de quebra de linha: O código não adiciona um comando para pular linha (\n) ao salvar. Se o arquivo não apagasse os dados, as palavras ficariam grudadas na mesma linha.
+• Erro de execução com arquivo inexistente: Se o usuário tentar listar as tarefas antes de cadastrar qualquer item (quando o arquivo tarefas.txt ainda não foi criado), o programa fecha com uma mensagem de erro (FileNotFoundError).
+
+Etapa 2 – Engenharia Reversa
+
+• Qual é a finalidade da variável opcao?
+Ela guarda o número digitado pelo usuário no menu (1, 2 ou 0) e controla quando o programa deve parar. Ela começa valendo -1 apenas para garantir que a condição do laço de repetição seja verdadeira na primeira vez.
+• Para que serve o comando while?
+É uma estrutura de repetição que mantém o menu aparecendo na tela continuamente até que o usuário digite 0 para sair.
+• O que acontece quando o usuário escolhe a opção 1?
+O programa pede para o usuário digitar o nome da tarefa, abre o arquivo tarefas.txt, grava o texto lá dentro, fecha o arquivo e exibe a mensagem "Tarefa cadastrada!".
+• Qual é a finalidade do comando open()?
+Serve para abrir ou criar um arquivo externo no computador (tarefas.txt), conectando-o ao programa Python para que seja possível ler ou escrever informações nele.
+• Qual é a diferença entre os modos "r" e "w"?
+	• "r" (Read): Abre o arquivo apenas para leitura.
+	• "w" (Write): Abre o arquivo para escrita. Se o arquivo já existir, ele apaga todo o conteúdo anterior e escreve um arquivo novo do zero.
+• Para que serve o comando readlines()?
+Ele lê todas as linhas do arquivo de texto de uma vez e transforma cada linha em um item de uma lista no Python, facilitando a leitura linha por linha.
+• Qual é a função do comando close()?
+Fecha o arquivo após o uso, garantindo que todas as alterações sejam salvas no disco e liberando a memória do computador.
+
+Etapa 3 – Identificação dos Erros
+
+1. Apagamento das tarefas anteriores:
+	• Por que acontece: Na linha arquivo = open("tarefas.txt", "w"), o modo "w" zera o arquivo toda vez que uma nova tarefa é salva.
+	• Modificação necessária: Alterar o modo "w" para "a" (append), que adiciona novos textos ao final do arquivo sem apagar os antigos.
+2. Tarefas salvas na mesma linha:
+	• Por que acontece: Na linha arquivo.write(tarefa), o comando grava apenas o texto puro, sem pular linha no final.
+	• Modificação necessária: Concatenar o caractere \n na gravação: arquivo.write(tarefa + "\n").
+3. Falha ao listar sem arquivo criado (Prevenção):
+	• Por que acontece: Tentar abrir um arquivo inexistente no modo "r" gera erro fatal.
+	• Modificação necessária: Adicionar tratamento de erro (try...except) nas opções 2 e 3.
+
+Etapas 4 e 5 – Explicação das Correções e do Desafio
+
+• Correções (Etapa 4): O modo de abertura na opção 1 foi alterado para "a" e foi adicionado \n ao final de cada tarefa. Na opção 2, foi adicionado .strip() na impressão para evitar linhas em branco extras na tela.
+• Desafio Individual (Etapa 5): Foi criada a opção 3 - Quantidade de tarefas cadastradas. Ela abre o arquivo em modo leitura ("r"), carrega as linhas com readlines() e usa a função len(linhas) para contar e exibir o total de tarefas registradas.
+
+Etapa 6 – Registro de Utilização da Inteligência Artificial
+
+• Qual ferramenta de IA utilizada?
+Gemini.
+• Qual pergunta ou comando enviado para a IA?
+Enviei o enunciado completo da atividade e o código original fornecido, pedindo ajuda para interpretar os comandos Python, identificar os erros de manipulação de arquivo e implementar a nova opção de contagem de tarefas.
+• Qual problema a IA apontou?
+Apontou que o modo "w" estava sobrescrevendo o arquivo a cada novo cadastro, que faltava a quebra de linha \n no comando write() e que faltava tratamento caso o arquivo ainda não existisse na hora da leitura.
+• Você compreendeu a solução apresentada? Justifique.
+Sim. Compreendi que o modo "w" recria o arquivo apagando o histórico, enquanto o modo "a" preserva os dados anteriores. Também entendi como o readlines() gera uma lista com as linhas do arquivo, permitindo que a função len() conte quantas tarefas existem.
+• O que você aprendeu durante a correção?
+Aprendi como manipular arquivos .txt em Python (open, write, readlines, close), a diferença prática entre os modos de abertura ("r", "w" e "a"), como organizar quebras de linha com \n e .strip(), e como evitar falhas no programa usando try/except.
+
+Arquivo 2: tarefas.py
+
+(Copie o código abaixo e salve exatamente com o nome tarefas.py dentro da pasta atividade_engenharia_reversa).
+python
+opcao = -1
+
+while opcao != 0:
+    print("\n===== MENU DE TAREFAS =====")
+    print("1 - Cadastrar tarefa")
+    print("2 - Listar tarefas")
+    print("3 - Quantidade de tarefas cadastradas")
+    print("0 - Sair")
+    
+    opcao = int(input("Escolha uma opção: "))
+    
+    if opcao == 1:
+        tarefa = input("Digite a tarefa: ")
+        arquivo = open("tarefas.txt", "a", encoding="utf-8")
+        arquivo.write(tarefa + "\n")
+        arquivo.close()
+        print("Tarefa cadastrada!")
+        
+    elif opcao == 2:
+        try:
+            arquivo = open("tarefas.txt", "r", encoding="utf-8")
+            linhas = arquivo.readlines()
+            arquivo.close()
+            
+            print("\n===== LISTA DE TAREFAS =====")
+            if len(linhas) == 0:
+                print("Nenhuma tarefa cadastrada ainda.")
+            else:
+                for tarefa in linhas:
+                    print(tarefa.strip())
+        except FileNotFoundError:
+            print("\nNenhuma tarefa cadastrada ainda.")
+            
+    elif opcao == 3:
+        try:
+            arquivo = open("tarefas.txt", "r", encoding="utf-8")
+            linhas = arquivo.readlines()
+            arquivo.close()
+            
+            print(f"\nQuantidade de tarefas cadastradas: {len(linhas)}")
+        except FileNotFoundError:
+            print("\nQuantidade de tarefas cadastradas: 0")
+            
+    elif opcao == 0:
+        print("Programa encerrado!")
+        
+    else:
+        print("Opção inválida!")
